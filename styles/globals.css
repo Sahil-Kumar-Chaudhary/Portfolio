@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 .translate-z-0 {
@@ -12,32 +13,32 @@ html {
 
 @layer base {
   body {
-    @apply bg-secondary leading-relaxed overflow-x-hidden;
+    @apply bg-secondary leading-relaxed overflow-x-hidden pb-[80px] xl:pb-0;
   }
   .page {
     @apply w-full h-screen;
   }
   .h1 {
-    @apply text-[35px] leading-tight md:text-[60px] md:leading-[1.3] mb-8 font-semibold;
+    @apply text-[28px] leading-tight sm:text-[35px] md:text-[60px] md:leading-[1.3] mb-8 font-semibold;
   }
   .h2 {
-    @apply text-[35px] leading-tight md:text-[54px] md:leading-[1.3] mb-4 font-semibold;
+    @apply text-[28px] leading-tight sm:text-[35px] md:text-[54px] md:leading-[1.3] mb-4 font-semibold;
   }
   p {
-    @apply leading-[1.8] text-white/60 font-light;
+    @apply leading-[1.8] text-white/60 font-light text-sm sm:text-base;
   }
   .btn,
   .input {
-    @apply h-[52px];
+    @apply h-[44px] sm:h-[52px];
   }
   .input {
-    @apply w-full h-[52px] rounded-lg pl-6;
+    @apply w-full h-[44px] sm:h-[52px] rounded-lg pl-4 sm:pl-6 text-sm sm:text-base;
   }
   .input,
   .textarea {
     @apply bg-transparent outline-none focus:ring-1 focus:ring-accent border border-white/20 placeholder:text-white/30 placeholder:font-light;
   }
   .textarea {
-    @apply w-full h-[180px] p-6 rounded-lg resize-none;
+    @apply w-full h-[140px] sm:h-[180px] p-4 sm:p-6 rounded-lg resize-none text-sm sm:text-base;
   }
 }

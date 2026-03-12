@@ -30,7 +30,7 @@ const ServiceSlider = () => {
       {skillCategories.map((category, i) => (
         <div
           key={i}
-          className="bg-[rgba(65,47,123,0.15)] rounded-lg px-6 py-8 hover:bg-[rgba(89,65,169,0.15)] hover:scale-[1.03] transition-all duration-300"
+          className="bg-[rgba(65,47,123,0.15)] rounded-lg px-4 sm:px-6 py-6 sm:py-8 hover:bg-[rgba(89,65,169,0.15)] hover:scale-[1.02] sm:hover:scale-[1.03] transition-all duration-300"
         >
           <h3 className="text-lg text-accent mb-4 font-semibold">
             {category.title}

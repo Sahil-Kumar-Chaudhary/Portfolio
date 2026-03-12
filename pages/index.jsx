@@ -103,12 +103,12 @@ const Home = () => {
         {/* animated background */}
         <ParticlesContainer />
         <div className="w-full h-full bg-gradient-to-r from-primary/10 via-black/30 to-black/10">
-          <div className="text-center flex flex-col justify-center xl:pt-40 xl:text-left h-full container mx-auto">
+          <div className="text-center flex flex-col justify-center px-4 sm:px-6 xl:pt-40 xl:text-left h-full container mx-auto">
             <motion.p
               variants={fadeIn("down", 0.2)}
               initial="hidden"
               animate="show"
-              className="text-sm uppercase tracking-[4px] text-white/60 mb-4"
+              className="text-xs sm:text-sm uppercase tracking-[2px] sm:tracking-[4px] text-white/60 mb-4"
             >
               Cybersecurity Enthusiast &amp; Developer
             </motion.p>
@@ -137,13 +137,13 @@ const Home = () => {
               variants={fadeIn("down", 0.5)}
               initial="hidden"
               animate="show"
-              className="flex flex-wrap gap-4 justify-center xl:justify-start"
+              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center xl:justify-start items-center"
             >
               <Link
                 href="https://github.com/Sahil-Kumar-Chaudhary"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="btn rounded-full border border-white/50 px-6 flex items-center gap-2 hover:border-accent hover:text-accent transition-all duration-300"
+                className="btn rounded-full border border-white/50 px-4 sm:px-6 flex items-center gap-2 hover:border-accent hover:text-accent transition-all duration-300 text-sm sm:text-base w-full sm:w-auto justify-center"
               >
                 <RiGithubLine /> GitHub
               </Link>
@@ -151,13 +151,13 @@ const Home = () => {
                 href="https://linkedin.com/in/sahil-kumar-chaudhary"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="btn rounded-full border border-white/50 px-6 flex items-center gap-2 hover:border-accent hover:text-accent transition-all duration-300"
+                className="btn rounded-full border border-white/50 px-4 sm:px-6 flex items-center gap-2 hover:border-accent hover:text-accent transition-all duration-300 text-sm sm:text-base w-full sm:w-auto justify-center"
               >
                 <RiLinkedinLine /> LinkedIn
               </Link>
               <Link
                 href="#contact"
-                className="btn rounded-full bg-accent border border-accent px-6 flex items-center gap-2 hover:bg-accent/80 transition-all duration-300"
+                className="btn rounded-full bg-accent border border-accent px-4 sm:px-6 flex items-center gap-2 hover:bg-accent/80 transition-all duration-300 text-sm sm:text-base w-full sm:w-auto justify-center"
               >
                 <HiEnvelope /> Contact
               </Link>
@@ -187,14 +187,14 @@ const Home = () => {
       {/* ═══════════ ABOUT ═══════════ */}
       <Section id="about" className="min-h-screen bg-primary/30 pt-24 pb-16">
         <AnimatedBackground id="bg-about" />
-        <div className="relative z-10 container mx-auto text-center xl:text-left">
-          <div className="flex flex-col xl:flex-row gap-x-6 items-center">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center xl:text-left">
+          <div className="flex flex-col xl:flex-row gap-x-6 gap-y-8 items-center">
             {/* IMAGE */}
       <div className="flex-1 flex justify-center">
         <img
           src="/image.png"
           alt="Sahil Kumar Chaudhary"
-          className="rounded-lg max-w-[400px] object-cover"
+          className="rounded-lg w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] object-cover"
         />
       </div>
             <div className="flex-1 flex flex-col justify-center">
@@ -222,7 +222,7 @@ const Home = () => {
         {/* DOWNLOAD BUTTON */}
         <a
           href="/cv.pdf"
-          className="inline-block bg-accent px-6 py-3 rounded-lg text-white font-semibold hover:opacity-90 transition"
+          className="inline-block bg-accent px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-white font-semibold hover:opacity-90 transition text-sm sm:text-base"
         >
           Download CV
         </a>
@@ -236,7 +236,7 @@ const Home = () => {
       <Section id="skills" className="min-h-screen bg-primary/30 pt-24 pb-16 overflow-hidden">
         <AnimatedBackground id="bg-skills" />
         <Circles />
-        <div className="relative z-10 container mx-auto">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <div className="flex flex-col xl:flex-row gap-x-8">
             <div className="text-center flex xl:w-[30vw] flex-col lg:text-left mb-4 xl:mb-0">
               <h2 className="h2 xl:mt-8">
@@ -264,7 +264,7 @@ const Home = () => {
       <Section id="projects" className="min-h-screen bg-primary/30 pt-24 pb-16 overflow-hidden">
         <AnimatedBackground id="bg-projects" />
         <Circles />
-        <div className="relative z-10 container mx-auto">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6">
           <div className="flex flex-col xl:flex-row gap-x-8">
             <div className="text-center flex xl:w-[30vw] flex-col lg:text-left mb-4 xl:mb-0">
               <h2 className="h2 xl:mt-12">
@@ -286,15 +286,15 @@ const Home = () => {
       {/* ═══════════ CERTIFICATES ═══════════ */}
       <Section id="certificates" className="min-h-screen bg-primary/30 pt-24 pb-16">
         <AnimatedBackground id="bg-certificates" />
-        <div className="relative z-10 container mx-auto text-center">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center">
           <h2 className="h2 mb-8">
             My <span className="text-accent">Certificates</span>.
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-[800px] mx-auto mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-[800px] mx-auto mt-8">
             {certificateData.map((cert, i) => (
               <div
                 key={i}
-                className="bg-[rgba(65,47,123,0.15)] rounded-lg p-4 flex items-start gap-4 hover:bg-[rgba(89,65,169,0.15)] hover:scale-[1.03] transition-all duration-300 text-left"
+                className="bg-[rgba(65,47,123,0.15)] rounded-lg p-3 sm:p-4 flex items-start gap-3 sm:gap-4 hover:bg-[rgba(89,65,169,0.15)] hover:scale-[1.02] sm:hover:scale-[1.03] transition-all duration-300 text-left"
               >
                 <FaAward className="text-accent text-xl mt-1 flex-shrink-0" />
                 <div>
@@ -312,7 +312,7 @@ const Home = () => {
       {/* ═══════════ EDUCATION ═══════════ */}
       <Section id="education" className="min-h-[50vh] bg-primary/30 pt-24 pb-16">
         <AnimatedBackground id="bg-education" />
-        <div className="relative z-10 container mx-auto text-center">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center">
           <h2 className="h2 mb-8">
             My <span className="text-accent">Education</span>.
           </h2>
@@ -320,9 +320,9 @@ const Home = () => {
             {educationData.map((edu, i) => (
               <div
                 key={i}
-                className="bg-[rgba(65,47,123,0.15)] rounded-lg p-8 text-left hover:bg-[rgba(89,65,169,0.15)] hover:scale-[1.03] transition-all duration-300"
+                className="bg-[rgba(65,47,123,0.15)] rounded-lg p-5 sm:p-8 text-left hover:bg-[rgba(89,65,169,0.15)] hover:scale-[1.02] sm:hover:scale-[1.03] transition-all duration-300"
               >
-                <h3 className="text-xl font-semibold mb-1">{edu.degree}</h3>
+                <h3 className="text-base sm:text-xl font-semibold mb-1">{edu.degree}</h3>
                 <p className="text-white/60 mb-1">{edu.institution}</p>
                 <p className="text-white/40 text-sm mb-2">{edu.location}</p>
                 <div className="flex flex-wrap items-center gap-4">
@@ -338,14 +338,14 @@ const Home = () => {
       {/* ═══════════ CONTACT ═══════════ */}
       <Section id="contact" className="min-h-screen bg-primary/30 pt-24 pb-16">
         <AnimatedBackground id="bg-contact" />
-        <div className="relative z-10 container mx-auto flex items-center justify-center">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 flex items-center justify-center">
           <div className="flex flex-col w-full max-w-[700px] text-center">
             <h2 className="h2 text-center mb-12">
               Let&apos;s <span className="text-accent">connect.</span>
             </h2>
 
             {/* contact links */}
-            <div className="flex flex-wrap justify-center gap-6 mb-8">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-6 mb-8">
               <Link
                 href="mailto:sahilku707@gmail.com"
                 className="flex items-center gap-2 text-white/60 hover:text-accent transition-all"
@@ -381,7 +381,7 @@ const Home = () => {
               autoCapitalize="off"
               name="contact"
             >
-              <div className="flex gap-x-6 w-full">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-x-6 w-full">
                 <input type="hidden" name="form-name" value="contact" />
                 <input
                   type="text"

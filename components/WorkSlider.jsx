@@ -21,11 +21,11 @@ const projectData = [
 
 const WorkSlider = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
       {projectData.map((project, i) => (
         <div
           key={i}
-          className="bg-[rgba(65,47,123,0.15)] rounded-lg p-6 flex flex-col gap-4 group hover:bg-[rgba(89,65,169,0.15)] hover:scale-[1.03] transition-all duration-300"
+          className="bg-[rgba(65,47,123,0.15)] rounded-lg p-4 sm:p-6 flex flex-col gap-3 sm:gap-4 group hover:bg-[rgba(89,65,169,0.15)] hover:scale-[1.02] sm:hover:scale-[1.03] transition-all duration-300"
         >
           <div className="text-4xl text-accent mb-2 font-bold opacity-20">
             {String(i + 1).padStart(2, "0")}
