@@ -1,8 +1,18 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Particles } from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
 const AnimatedBackground = ({ id = "bg-particles" }) => {
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    setIsTouchDevice(
+      "ontouchstart" in window ||
+        navigator.maxTouchPoints > 0 ||
+        window.matchMedia("(pointer: coarse)").matches
+    );
+  }, []);
+
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
   }, []);
@@ -19,11 +29,11 @@ const AnimatedBackground = ({ id = "bg-particles" }) => {
         options={{
           fullScreen: { enable: false },
           background: { color: { value: "" } },
-          fpsLimit: 120,
+          fpsLimit: isTouchDevice ? 30 : 120,
           interactivity: {
             events: {
               onClick: { enable: false, mode: "push" },
-              onHover: { enable: true, mode: "repulse" },
+              onHover: { enable: !isTouchDevice, mode: "repulse" },
               resize: true,
             },
             modes: {
@@ -40,19 +50,22 @@ const AnimatedBackground = ({ id = "bg-particles" }) => {
               opacity: 0.5,
               width: 1,
             },
-            collisions: { enable: true },
+            collisions: { enable: !isTouchDevice },
             move: {
               direction: "none",
               enable: true,
               outMode: { default: "bounce" },
               random: false,
-              speed: 1,
+              speed: isTouchDevice ? 0.5 : 1,
               straight: false,
             },
-            number: { density: { enable: true, area: 800 }, value: 80 },
+            number: {
+              density: { enable: true, area: isTouchDevice ? 1200 : 800 },
+              value: isTouchDevice ? 30 : 80,
+            },
             opacity: { value: 0.5 },
             shape: { type: "circle" },
-            size: { value: { min: 1, max: 5 } },
+            size: { value: { min: 1, max: isTouchDevice ? 3 : 5 } },
           },
           detectRetina: true,
         }}

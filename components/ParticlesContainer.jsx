@@ -1,9 +1,18 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Particles } from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
 const ParticlesContainer = () => {
-  // init
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    setIsTouchDevice(
+      "ontouchstart" in window ||
+        navigator.maxTouchPoints > 0 ||
+        window.matchMedia("(pointer: coarse)").matches
+    );
+  }, []);
+
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
   }, []);
@@ -23,7 +32,7 @@ const ParticlesContainer = () => {
             value: "",
           },
         },
-        fpsLimit: 120,
+        fpsLimit: isTouchDevice ? 30 : 120,
         interactivity: {
           events: {
             onClick: {
@@ -31,7 +40,7 @@ const ParticlesContainer = () => {
               mode: "push",
             },
             onHover: {
-              enable: true,
+              enable: !isTouchDevice,
               mode: "repulse",
             },
             resize: true,
@@ -58,7 +67,7 @@ const ParticlesContainer = () => {
             width: 1,
           },
           collisions: {
-            enable: true,
+            enable: !isTouchDevice,
           },
           move: {
             direction: "none",
@@ -67,15 +76,15 @@ const ParticlesContainer = () => {
               default: "bounce",
             },
             random: false,
-            speed: 1,
+            speed: isTouchDevice ? 0.5 : 1,
             straight: false,
           },
           number: {
             density: {
               enable: true,
-              area: 800,
+              area: isTouchDevice ? 1200 : 800,
             },
-            value: 80,
+            value: isTouchDevice ? 30 : 80,
           },
           opacity: {
             value: 0.5,
@@ -86,7 +95,7 @@ const ParticlesContainer = () => {
           size: {
             value: {
               min: 1,
-              max: 5,
+              max: isTouchDevice ? 3 : 5,
             },
           },
         },

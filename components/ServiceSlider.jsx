@@ -22,6 +22,16 @@ const skillCategories = [
       "Hack The Box",
     ],
   },
+  {
+    title: "Soft Skills",
+    skills: [
+      "Creativity",
+      "Problem-Solving",
+      "Curiosity",
+      "Teamwork",
+      "Adaptability",
+    ],
+  },
 ];
 
 const ServiceSlider = () => {

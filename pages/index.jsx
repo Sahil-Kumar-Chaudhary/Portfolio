@@ -110,7 +110,7 @@ const Home = () => {
               animate="show"
               className="text-xs sm:text-sm uppercase tracking-[2px] sm:tracking-[4px] text-white/60 mb-4"
             >
-              Cybersecurity Enthusiast &amp; Developer
+            
             </motion.p>
 
             <motion.h1
@@ -200,7 +200,7 @@ const Home = () => {
             <div className="flex-1 flex flex-col justify-center">
 
               <h2 className="h2">
-                About <span className="text-accent">Me</span>.
+                About <span className="text-accent">Me</span>
               </h2>
                <h2 className="text-2xl font-bold mb-6">
           Who Am I
@@ -221,11 +221,11 @@ const Home = () => {
 
         {/* DOWNLOAD BUTTON */}
         <a
-          href="/cv.pdf"
-          className="inline-block bg-accent px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-white font-semibold hover:opacity-90 transition text-sm sm:text-base"
-        >
-          Download CV
-        </a>
+  href="/cv.pdf"
+  className="w-fit bg-accent px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-white font-semibold hover:opacity-90 transition text-sm sm:text-base"
+>
+  Download CV
+</a>
 
             </div>
           </div>
@@ -237,22 +237,21 @@ const Home = () => {
         <AnimatedBackground id="bg-skills" />
         <Circles />
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <div className="flex flex-col xl:flex-row gap-x-8">
-            <div className="text-center flex xl:w-[30vw] flex-col lg:text-left mb-4 xl:mb-0">
-              <h2 className="h2 xl:mt-8">
-                My Skills <span className="text-accent">.</span>
+          <div className="flex flex-col">
+            <div className="text-center flex flex-col items-center">
+              <h2 className="h2">
+                Skills <span className="text-accent"></span>
               </h2>
-              <p className="mb-4 max-w-[400px] mx-auto lg:mx-0">
+              <p className="mb-4 max-w-[700px] mx-auto">
                 Tools, technologies, and platforms I work with across
                 development and cybersecurity.
                 </p>
                 
-                <p className="mb-4 max-w-[400px] mx-auto lg:mx-0">
-                My expertise spans both creating innovative software and ensuring its integrity, allowing me to approach projects with a security-first mindset.
+                <p className="max-w-[700px] mx-auto">
 
               </p>
             </div>
-            <div className="w-full xl:max-w-[65%]">
+            <div className="w-full max-w-[1000px] mx-auto mt-10 sm:mt-12">
               <ServiceSlider />
             </div>
           </div>
@@ -265,17 +264,17 @@ const Home = () => {
         <AnimatedBackground id="bg-projects" />
         <Circles />
         <div className="relative z-10 container mx-auto px-4 sm:px-6">
-          <div className="flex flex-col xl:flex-row gap-x-8">
-            <div className="text-center flex xl:w-[30vw] flex-col lg:text-left mb-4 xl:mb-0">
-              <h2 className="h2 xl:mt-12">
-                My Projects <span className="text-accent">.</span>
+          <div className="flex flex-col">
+            <div className="text-center flex flex-col items-center">
+              <h2 className="h2">
+              Projects <span className="text-accent"></span>
               </h2>
-              <p className="mb-4 max-w-[400px] mx-auto lg:mx-0">
+              <p className="mb-4 max-w-[700px] mx-auto">
                 A selection of projects I have built, spanning web development
                 and hardware prototyping.
               </p>
             </div>
-            <div className="w-full xl:max-w-[65%]">
+            <div className="w-full max-w-[1200px] mx-auto mt-10 sm:mt-12">
               <WorkSlider />
             </div>
           </div>
@@ -288,7 +287,7 @@ const Home = () => {
         <AnimatedBackground id="bg-certificates" />
         <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center">
           <h2 className="h2 mb-8">
-            My <span className="text-accent">Certificates</span>.
+          <span className="text-accent">Certificates</span>
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-[800px] mx-auto mt-8">
             {certificateData.map((cert, i) => (
@@ -314,7 +313,7 @@ const Home = () => {
         <AnimatedBackground id="bg-education" />
         <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center">
           <h2 className="h2 mb-8">
-            My <span className="text-accent">Education</span>.
+            <span className="text-accent">Education</span>
           </h2>
           <div className="flex flex-col gap-6 max-w-[700px] mx-auto">
             {educationData.map((edu, i) => (

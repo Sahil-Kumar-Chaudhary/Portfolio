@@ -42,3 +42,49 @@ html {
     @apply w-full h-[140px] sm:h-[180px] p-4 sm:p-6 rounded-lg resize-none text-sm sm:text-base;
   }
 }
+
+/* ── Touch-device overrides for Chrome "Desktop site" mode ──
+   When a user enables "Request Desktop Site" on Android Chrome,
+   the viewport reports ~980px, triggering sm/md/lg breakpoints.
+   @media (pointer: coarse) detects the REAL hardware input device
+   (finger = coarse), so these styles override broken desktop layouts
+   on physical touch devices. ── */
+@media (pointer: coarse) {
+  body {
+    padding-bottom: 80px !important;
+  }
+
+  /* Force bottom nav to stay compact on touch devices */
+  nav > div {
+    height: 64px !important;
+    padding-top: 1rem !important;
+    font-size: 1.25rem !important;
+  }
+
+  /* Ensure images and containers don't overflow on touch */
+  img, video, canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* GPU-accelerate particle canvases for smoother rendering */
+  canvas {
+    will-change: auto;
+    transform: translateZ(0);
+  }
+
+  /* Reduce animation intensity on touch devices */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 2s !important;
+  }
+}
+
+/* Ensure particle canvases are hardware-accelerated everywhere */
+.translate-z-0 canvas,
+.tsparticles-canvas-el {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
