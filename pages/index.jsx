@@ -119,8 +119,8 @@ const Home = () => {
       <section id="home" className="h-screen relative bg-primary/60 overflow-hidden">
         {/* animated background */}
         <ParticlesContainer />
-        <div className="w-full h-full bg-gradient-to-r from-primary/10 via-black/30 to-black/10">
-          <div className="text-center flex flex-col justify-center px-4 sm:px-6 xl:pt-40 xl:text-left h-full container mx-auto">
+        <div className="w-full h-full bg-gradient-to-r from-primary/10 via-black/30 to-black/10 relative z-10 pointer-events-none">
+          <div className="text-center flex flex-col justify-center px-4 sm:px-6 xl:pt-40 xl:text-left h-full container mx-auto pointer-events-auto">
             <motion.p
               variants={fadeIn("down", 0.2)}
               initial="hidden"
@@ -156,24 +156,24 @@ const Home = () => {
               animate="show"
               className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center xl:justify-start items-center"
             >
-              <Link
+              <a
                 href="https://github.com/Sahil-Kumar-Chaudhary"
                 target="_blank"
                 rel="noreferrer noopener"
                 className="btn rounded-full border border-white/50 px-4 sm:px-6 flex items-center gap-2 hover:border-accent hover:text-accent transition-all duration-300 text-sm sm:text-base w-full sm:w-auto justify-center"
               >
                 <RiGithubLine /> GitHub
-              </Link>
+              </a>
 
               
-              <Link
-                href="https://linkedin.com/in/sahil-kumar-chaudhary"
+              <a
+                href="https://www.linkedin.com/in/sahil-kumar-chaudhary"
                 target="_blank"
                 rel="noreferrer noopener"
                 className="btn rounded-full border border-white/50 px-4 sm:px-6 flex items-center gap-2 hover:border-accent hover:text-accent transition-all duration-300 text-sm sm:text-base w-full sm:w-auto justify-center"
               >
                 <RiLinkedinLine /> LinkedIn
-              </Link>
+              </a>
               <button
                 type="button"
                 onClick={scrollToContact}
@@ -210,11 +210,11 @@ const Home = () => {
         <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center xl:text-left">
           <div className="flex flex-col xl:flex-row gap-x-6 gap-y-8 items-center">
             {/* IMAGE */}
-      <div className="flex-1 flex justify-center">
+      <div className="flex-1 flex justify-center perspective-[1000px]">
         <img
-          src="/image.png"
+          src="/image3.png"
           alt="Sahil Kumar Chaudhary"
-          className="rounded-lg w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] object-cover"
+          className="rounded-2xl w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] object-cover transition-all duration-500 hover:scale-105 hover:-rotate-2 hover:shadow-[0_20px_50px_rgba(230,142,46,0.2)] border-2 border-transparent hover:border-accent/30 bg-white/5"
         />
       </div>
             <div className="flex-1 flex flex-col justify-center">
@@ -482,7 +482,7 @@ const Home = () => {
             <div className="mt-10 border-t border-white/10 pt-8">
               <div className="flex flex-col items-center gap-5 text-center">
                 <div className="flex items-center gap-3 sm:gap-4">
-                  <Link
+                  <a
                     href="https://github.com/Sahil-Kumar-Chaudhary"
                     target="_blank"
                     rel="noreferrer noopener"
@@ -490,16 +490,16 @@ const Home = () => {
                   >
                     <RiGithubLine className="text-xl" />
                     <span className="sr-only">GitHub</span>
-                  </Link>
-                  <Link
-                    href="https://linkedin.com/in/sahil-kumar-chaudhary"
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/sahil-kumar-chaudhary"
                     target="_blank"
                     rel="noreferrer noopener"
                     className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-white/70 transition-all duration-300 hover:border-accent hover:text-accent"
                   >
                     <RiLinkedinLine className="text-xl" />
                     <span className="sr-only">LinkedIn</span>
-                  </Link>
+                  </a>
                   <Link
                     href="mailto:sahilku707@gmail.com"
                     className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-white/70 transition-all duration-300 hover:border-accent hover:text-accent"
@@ -520,7 +520,7 @@ const Home = () => {
                   <span className="hidden h-4 w-px bg-white/10 sm:block" aria-hidden />
                   <div className="flex items-center gap-2 text-white/50">
                     <RiPhoneLine className="text-base text-accent" />
-                    +91 00000 00000
+                    +91 7070430207
                   </div>
                 </div>
               </div>

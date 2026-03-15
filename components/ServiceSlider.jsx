@@ -32,6 +32,10 @@ const skillCategories = [
       "Adaptability",
     ],
   },
+  {
+    title: "Developer Tools",
+    skills: ["Git", "GitHub", "VS Code", "Docker", "Postman", "npm", "Vercel"],
+  },
 ];
 
 const ServiceSlider = () => {
