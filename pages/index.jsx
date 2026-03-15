@@ -1,7 +1,12 @@
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { RiGithubLine, RiLinkedinLine, RiMailLine } from "react-icons/ri";
+import {
+  RiGithubLine,
+  RiLinkedinLine,
+  RiMailLine,
+  RiPhoneLine,
+} from "react-icons/ri";
 import { HiEnvelope } from "react-icons/hi2";
 import { BsArrowRight } from "react-icons/bs";
 import { FaAward } from "react-icons/fa";
@@ -36,13 +41,15 @@ const Section = ({ children, id, className = "" }) => {
 
 /* ── certificate data ── */
 const certificateData = [
-  { title: "Introduction to Cybersecurity", issuer: "Cisco" },
-  { title: "Learn Wireshark Like a Pro", issuer: "Udemy" },
-  { title: "C++ Programming, OOPs and DSA", issuer: "" },
-  { title: "Cyber Job Simulation", issuer: "Deloitte" },
-  { title: "Bits and Bytes of Computer Networking", issuer: "Coursera" },
-  { title: "TCP/IP Advanced Topics", issuer: "Coursera" },
-  { title: "Fundamentals of Network Communication", issuer: "Coursera" },
+  { title: "Introduction to Cybersecurity", issuer: "Cisco", verifyLink: "https://drive.google.com/file/d/1VVcLp8OSqA5vKTzeRNeEYh0J9xDFX1Rp/view?usp=sharing"},
+  { title: "Learn Wireshark Like a Pro", issuer: "Udemy", verifyLink: "https://drive.google.com/file/d/1_bxMEgcVMKvM6N_okmYL7LXKPN3mUU8E/view?usp=drive_link" },
+  { title: "C++ Programming, OOPs and DSA", issuer: "CSE Pathshala", verifyLink: "https://drive.google.com/file/d/1BSFum_qkK5UaXrDUJB2tCR73ug-4TPnM/view?usp=sharing" },
+  { title: "Cyber Job Simulation", issuer: "Deloitte", verifyLink: "https://drive.google.com/file/d/1u-rREV_seR3kE507-VF2ggjccfD7uqyT/view?usp=drive_link"},
+  { title: "Bits and Bytes of Computer Networking", issuer: "Coursera", verifyLink: "https://drive.google.com/file/d/1oqxvF5iSPyY6er92h98vtoznsBY5ULCv/view?usp=sharing" },
+  { title: "TCP/IP Advanced Topics", issuer: "Coursera", verifyLink: "https://drive.google.com/file/d/1KRPcWvxlc1kcg9L27SRYsLX1yk6feGRR/view?usp=sharing"},
+  { title: "Fundamentals of Network Communication", issuer: "Coursera", verifyLink: "https://drive.google.com/file/d/1Tp_znOQ91pLu8AYxgujTeExMalx8Ym1S/view?usp=sharing"},
+  { title: "Responsive Web Design",issuer: "freeCodeCamp", verifyLink: "https://drive.google.com/file/d/1wayRo5-JO4KKsXF0w2sMPzCjNnvA7OkM/view?usp=sharing"},
+
 ];
 
 /* ── education data ── */
@@ -73,6 +80,14 @@ const educationData = [
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
 
+  const scrollToContact = (event) => {
+    event.preventDefault();
+    document.getElementById("contact")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsLoading(true);
@@ -80,19 +95,21 @@ const Home = () => {
     const myForm = event.target;
     const formData = new FormData(myForm);
 
-    fetch("/__forms.html", {
+    fetch("https://formsubmit.co/ajax/sahilku707@gmail.com", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(Object.fromEntries(formData)),
     })
-      .then((res) => {
-        if (res.status === 200) {
-          alert("Thank you. I will get back to you ASAP.");
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          alert("Thank you! I will get back to you ASAP.");
+          myForm.reset();
         } else {
-          console.log(res);
+          alert("Something went wrong. Please try again.");
         }
       })
-      .catch((error) => console.log(error))
+      .catch(() => alert("Failed to send. Please email me directly at sahilku707@gmail.com"))
       .finally(() => setIsLoading(false));
   };
 
@@ -147,6 +164,8 @@ const Home = () => {
               >
                 <RiGithubLine /> GitHub
               </Link>
+
+              
               <Link
                 href="https://linkedin.com/in/sahil-kumar-chaudhary"
                 target="_blank"
@@ -155,12 +174,13 @@ const Home = () => {
               >
                 <RiLinkedinLine /> LinkedIn
               </Link>
-              <Link
-                href="#contact"
+              <button
+                type="button"
+                onClick={scrollToContact}
                 className="btn rounded-full bg-accent border border-accent px-4 sm:px-6 flex items-center gap-2 hover:bg-accent/80 transition-all duration-300 text-sm sm:text-base w-full sm:w-auto justify-center"
               >
                 <HiEnvelope /> Contact
-              </Link>
+              </button>
             </motion.div>
           </div>
         </div>
@@ -221,7 +241,8 @@ const Home = () => {
 
         {/* DOWNLOAD BUTTON */}
         <a
-  href="/cv.pdf"
+  href="/Sahil_Cv.pdf"
+  download="Sahil_Kumar_Chaudhary_CV.pdf"
   className="w-fit bg-accent px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-white font-semibold hover:opacity-90 transition text-sm sm:text-base"
 >
   Download CV
@@ -296,12 +317,22 @@ const Home = () => {
                 className="bg-[rgba(65,47,123,0.15)] rounded-lg p-3 sm:p-4 flex items-start gap-3 sm:gap-4 hover:bg-[rgba(89,65,169,0.15)] hover:scale-[1.02] sm:hover:scale-[1.03] transition-all duration-300 text-left"
               >
                 <FaAward className="text-accent text-xl mt-1 flex-shrink-0" />
-                <div>
+                <div className="flex-1">
                   <div className="font-medium">{cert.title}</div>
                   {cert.issuer && (
                     <div className="text-sm text-white/40">{cert.issuer}</div>
                   )}
                 </div>
+                {cert.verifyLink && (
+                  <Link
+                    href={cert.verifyLink}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="flex-shrink-0 mt-1 text-xs font-semibold px-3 py-1 rounded-full border border-accent/60 text-accent hover:bg-accent hover:text-white transition-all duration-300"
+                  >
+                    Verify ↗
+                  </Link>
+                )}
               </div>
             ))}
           </div>
@@ -337,97 +368,163 @@ const Home = () => {
       {/* ═══════════ CONTACT ═══════════ */}
       <Section id="contact" className="min-h-screen bg-primary/30 pt-24 pb-16">
         <AnimatedBackground id="bg-contact" />
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 flex items-center justify-center">
-          <div className="flex flex-col w-full max-w-[700px] text-center">
-            <h2 className="h2 text-center mb-12">
-              Let&apos;s <span className="text-accent">connect.</span>
-            </h2>
-
-            {/* contact links */}
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-6 mb-8">
-              <Link
-                href="mailto:sahilku707@gmail.com"
-                className="flex items-center gap-2 text-white/60 hover:text-accent transition-all"
-              >
-                <RiMailLine className="text-accent text-lg" />
-                sahilku707@gmail.com
-              </Link>
-              <Link
-                href="https://github.com/Sahil-Kumar-Chaudhary"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="flex items-center gap-2 text-white/60 hover:text-accent transition-all"
-              >
-                <RiGithubLine className="text-accent text-lg" />
-                GitHub
-              </Link>
-              <Link
-                href="https://linkedin.com/in/sahil-kumar-chaudhary"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="flex items-center gap-2 text-white/60 hover:text-accent transition-all"
-              >
-                <RiLinkedinLine className="text-accent text-lg" />
-                LinkedIn
-              </Link>
+        <div className="relative z-10 container mx-auto px-4 sm:px-6">
+          <div className="mx-auto w-full max-w-[1040px] rounded-[28px] border border-white/10 bg-black/20 px-5 py-8 shadow-[0_30px_80px_rgba(0,0,0,0.35)] backdrop-blur-md sm:px-8 sm:py-10 lg:px-12">
+            <div className="text-center mb-10">
+              <h2 className="text-[30px] sm:text-[38px] font-semibold text-white mb-3">
+                Contact <span className="text-accent">me</span>
+              </h2>
+              
             </div>
 
-            {/* form */}
             <form
-              className="flex-1 flex flex-col gap-6 w-full mx-auto"
+              className="w-full"
               onSubmit={handleSubmit}
               autoComplete="off"
               autoCapitalize="off"
               name="contact"
             >
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-x-6 w-full">
-                <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="form-name" value="contact" />
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
                 <input
                   type="text"
                   name="name"
                   placeholder="Name"
-                  className="input"
+                  className="input bg-white/[0.04]"
                   disabled={isLoading}
                   required
                 />
                 <input
                   type="email"
                   name="email"
-                  placeholder="E-mail"
-                  className="input"
+                  placeholder="Email"
+                  className="input bg-white/[0.04]"
+                  disabled={isLoading}
+                  required
+                />
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="Phone Number"
+                  className="input bg-white/[0.04]"
+                  disabled={isLoading}
+                />
+                <div className="relative">
+                  <select
+                    name="service"
+                    className="input appearance-none bg-white/[0.04] pr-12 text-white/70"
+                    defaultValue=""
+                    disabled={isLoading}
+                    required
+                  >
+                    <option
+                      value=""
+                      disabled
+                      style={{ color: "#64748b", backgroundColor: "#ffffff" }}
+                    >
+                      Service Of Interest
+                    </option>
+                    <option
+                      value="Web Development"
+                      style={{ color: "#0f172a", backgroundColor: "#ffffff" }}
+                    >
+                      Web Development
+                    </option>
+                    <option
+                      value="Cybersecurity"
+                      style={{ color: "#0f172a", backgroundColor: "#ffffff" }}
+                    >
+                      Cybersecurity
+                    </option>
+                    <option
+                      value="Networking"
+                      style={{ color: "#0f172a", backgroundColor: "#ffffff" }}
+                    >
+                      Networking
+                    </option>
+                    <option
+                      value="Collaboration"
+                      style={{ color: "#0f172a", backgroundColor: "#ffffff" }}
+                    >
+                      Collaboration
+                    </option>
+                  </select>
+                  <span className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-white/40">
+                    ▾
+                  </span>
+                </div>
+                <textarea
+                  name="message"
+                  placeholder="Project details..."
+                  className="textarea h-[150px] bg-white/[0.04] min-h-[150px] md:col-span-2"
                   disabled={isLoading}
                   required
                 />
               </div>
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                className="input"
-                disabled={isLoading}
-                required
-              />
-              <textarea
-                name="message"
-                placeholder="Message..."
-                className="textarea"
-                disabled={isLoading}
-                required
-              />
-              <button
-                type="submit"
-                className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group mx-auto"
-                disabled={isLoading}
-              >
-                <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
-                  Let&apos;s talk
-                </span>
-                <BsArrowRight
-                  className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300 absolute text-[22px]"
-                  aria-hidden
-                />
-              </button>
+
+              <div className="mt-6 flex justify-end">
+                <button
+                  type="submit"
+                  className="btn min-w-[140px] rounded-xl border border-white/40 bg-white/5 px-8 text-white transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent hover:bg-accent/10 group"
+                  disabled={isLoading}
+                >
+                  <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
+                    {isLoading ? "Sending..." : "Send"}
+                  </span>
+                  <BsArrowRight
+                    className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300 absolute text-[22px]"
+                    aria-hidden
+                  />
+                </button>
+              </div>
             </form>
+
+            <div className="mt-10 border-t border-white/10 pt-8">
+              <div className="flex flex-col items-center gap-5 text-center">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <Link
+                    href="https://github.com/Sahil-Kumar-Chaudhary"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-white/70 transition-all duration-300 hover:border-accent hover:text-accent"
+                  >
+                    <RiGithubLine className="text-xl" />
+                    <span className="sr-only">GitHub</span>
+                  </Link>
+                  <Link
+                    href="https://linkedin.com/in/sahil-kumar-chaudhary"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-white/70 transition-all duration-300 hover:border-accent hover:text-accent"
+                  >
+                    <RiLinkedinLine className="text-xl" />
+                    <span className="sr-only">LinkedIn</span>
+                  </Link>
+                  <Link
+                    href="mailto:sahilku707@gmail.com"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-white/70 transition-all duration-300 hover:border-accent hover:text-accent"
+                  >
+                    <RiMailLine className="text-xl" />
+                    <span className="sr-only">Email</span>
+                  </Link>
+                </div>
+
+                <div className="flex flex-col items-center justify-center gap-3 text-sm text-white/60 sm:flex-row sm:flex-wrap sm:gap-8">
+                  <Link
+                    href="mailto:sahilku707@gmail.com"
+                    className="flex items-center gap-2 transition-all duration-300 hover:text-accent"
+                  >
+                    <RiMailLine className="text-base text-accent" />
+                    sahilku707@gmail.com
+                  </Link>
+                  <span className="hidden h-4 w-px bg-white/10 sm:block" aria-hidden />
+                  <div className="flex items-center gap-2 text-white/50">
+                    <RiPhoneLine className="text-base text-accent" />
+                    +91 00000 00000
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
