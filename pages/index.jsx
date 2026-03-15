@@ -227,16 +227,13 @@ const Home = () => {
         </h2>
 
         <p className="text-gray-300 leading-relaxed mb-6">
-          My name is Sahil Kumar Chaudhary and I am a Computer Science student at Lovely Professional University with a strong interest in cybersecurity, networking, and secure software development. I am passionate about understanding how systems work, discovering potential vulnerabilities, and building reliable and secure applications.
-        </p>
+        I am Sahil Kumar Chaudhary a computer science student at lovely professional university. I am interested in cybersecurity networking and secure software development. I enjoy learning how systems work and how they can be protected from cyber threats.        </p>
 
         <p className="text-gray-300 leading-relaxed mb-6">
-          My journey in technology began with programming where I started learning languages like C++ and Python. Over time, my curiosity expanded into the field of cybersecurity where I began exploring network security, ethical hacking, and penetration testing. I enjoy learning new security tools, analyzing networks, and understanding how digital systems can be protected from modern cyber threats.
-        </p>
+        My journey with programming languages like c++ and python. Later i developed a strong interest in cybersecurity and began exploring network security ethical hacking and penetration testing.        </p>
 
         <p className="text-gray-300 leading-relaxed mb-8">
-          I regularly practice my cybersecurity skills using platforms such as TryHackMe and Hack The Box while also working on development projects that improve my technical skills and problem-solving abilities. My goal is to combine development and security knowledge to build secure systems and contribute to protecting digital infrastructures.
-        </p>
+        I regularly practice on platforms like tryhackme and hack the box and work on development projects to improve my technical and problem solving skills. My goal is to build secure systems and help protect digital infrastructure.        </p>
 
 
         {/* DOWNLOAD BUTTON */}
