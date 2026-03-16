@@ -15,7 +15,7 @@ const projectData = [
       "Web app that calculates EMI and loan repayment with financial insights.",
     tech: ["Next.js", "React", "API"],
     image: "/ailoan.png",
-    liveLink: "https://loan-repayment-or8ibwrwe-sahil-kumar-chaudharys-projects.vercel.app/",
+    liveLink: "https://ai-loan-repayment.vercel.app/",
     githubLink: "https://github.com/Sahil-Kumar-Chaudhary/loan-repayment",
   },
   {
@@ -37,11 +37,13 @@ const WorkSlider = () => {
           className="bg-[rgba(65,47,123,0.15)] rounded-lg p-4 sm:p-6 flex flex-col gap-3 sm:gap-4 group hover:bg-[rgba(89,65,169,0.15)] hover:scale-[1.02] sm:hover:scale-[1.03] transition-all duration-300"
         >
           {project.image && (
-            <img
-              src={project.image}
-              alt={`${project.title} preview`}
-              className="w-full h-[180px] object-cover rounded-md border border-white/10"
-            />
+            <div className="overflow-hidden rounded-md border border-white/10">
+              <img
+                src={project.image}
+                alt={`${project.title} preview`}
+                className="w-full h-[160px] sm:h-[180px] md:h-[200px] xl:h-[220px] object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
           )}
           <div className="text-4xl text-accent mb-2 font-bold opacity-20">
             {String(i + 1).padStart(2, "0")}

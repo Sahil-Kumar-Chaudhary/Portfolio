@@ -189,7 +189,7 @@ const Home = () => {
         <div className="w-full max-w-[1280px] h-full absolute right-0 bottom-0 pointer-events-none">
           <div
             role="img"
-            className="bg-none xl:bg-explosion xl:bg-cover xl:bg-right xl:bg-no-repeat w-full h-full absolute mix-blend-color-dodge translate-z-0"
+            className="bg-explosion bg-cover bg-right bg-no-repeat w-full h-full absolute mix-blend-color-dodge translate-z-0 opacity-30 md:opacity-50 xl:opacity-100 animate-pulse"
             aria-hidden
           />
           <motion.div
@@ -214,7 +214,7 @@ const Home = () => {
         <img
           src="/image3.png"
           alt="Sahil Kumar Chaudhary"
-          className="rounded-2xl w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] object-cover transition-all duration-500 hover:scale-105 hover:-rotate-2 hover:shadow-[0_20px_50px_rgba(230,142,46,0.2)] border-2 border-transparent hover:border-accent/30 bg-white/5"
+          className="rounded-2xl w-full max-w-[250px] sm:max-w-[300px] md:max-w-[380px] lg:max-w-[450px] xl:max-w-[480px] h-auto object-cover transition-all duration-500 hover:scale-110 hover:rotate-3 hover:shadow-[0_20px_50px_rgba(230,142,46,0.5)] border-2 border-transparent hover:border-accent/50 bg-white/5"
         />
       </div>
             <div className="flex-1 flex flex-col justify-center">
