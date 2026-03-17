@@ -1,5 +1,21 @@
 const projectData = [
   {
+    title: "Phishing URL Checker – Web Security Tool",
+    description:
+      "Web based tool to detect phishing urls using checks like https validation, suspicious keywords, url length, ip detection, and subdomain analysis. Implemented a risk scoring system with clear color based results.",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "JavaScript",
+      "API Integration",
+    ],
+    image: "/phishingurl.png",
+    liveLink: "https://phishing-url-checker-online.vercel.app/",
+    githubLink: "https://github.com/Sahil-Kumar-Chaudhary/Phishing-url-checker",
+  },
+  {
     title: "Password Strength Checker",
     description:
       "Web tool that checks password strength using length, numbers, and special characters and provides instant feedback.",
@@ -17,14 +33,6 @@ const projectData = [
     image: "/ailoan.png",
     liveLink: "https://ai-loan-repayment.vercel.app/",
     githubLink: "https://github.com/Sahil-Kumar-Chaudhary/loan-repayment",
-  },
-  {
-    title: "Smart Dustbin",
-    description:
-      "Touchless dustbin using ultrasonic sensor and servo motor for automatic lid opening.",
-    tech: ["Arduino Uno", "C++", "Ultrasonic Sensor", "Servo Motor"],
-    liveLink: "#",
-    githubLink: "#",
   },
 ];
 
