@@ -240,7 +240,7 @@ const Home = () => {
         <a
   href="/Sahil_Cv.pdf"
   download="Sahil_Kumar_Chaudhary_CV.pdf"
-  className="w-fit bg-accent px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-white font-semibold hover:opacity-90 transition text-sm sm:text-base"
+  className="w-fit mx-auto xl:mx-0 bg-accent px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-white font-semibold hover:opacity-90 transition text-sm sm:text-base"
 >
   Download CV
 </a>
