@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import Socials from "../components/Socials";
+
 
 const Header = () => {
   return (
@@ -13,7 +13,6 @@ const Header = () => {
           </Link>
 
           {/* socials */}
-          <Socials />
         </div>
       </div>
     </header>
