@@ -212,9 +212,9 @@ const Home = () => {
             {/* IMAGE */}
       <div className="flex-1 flex justify-center perspective-[1000px]">
         <img
-          src="/image3.png"
+          src="/image13_nobg.png"
           alt="Sahil Kumar Chaudhary"
-          className="rounded-2xl w-full max-w-[250px] sm:max-w-[300px] md:max-w-[380px] lg:max-w-[450px] xl:max-w-[480px] h-auto object-cover transition-all duration-500 hover:scale-110 hover:rotate-3 hover:shadow-[0_20px_50px_rgba(230,142,46,0.5)] border-2 border-transparent hover:border-accent/50 bg-white/5"
+          className="rounded-2xl w-full max-w-[250px] sm:max-w-[300px] md:max-w-[380px] lg:max-w-[450px] xl:max-w-[480px] h-auto object-cover transition-all duration-500 hover:scale-[1.05] hover:rotate-3 hover:shadow-[0_20px_50px_rgba(230,142,46,0.5)] border-2 border-transparent hover:border-accent/50 bg-white/5"
         />
       </div>
             <div className="flex-1 flex flex-col justify-center">
